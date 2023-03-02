@@ -1,0 +1,22 @@
+<div class="row justify-content-center">
+    <div class="col-4 border">
+        <div *ngIf="isLoading">
+            <div class="lds-dual-ring"></div>
+        </div>
+      
+        <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+            <div class="form-group mb-3">
+                <label>Email</label>
+                <input type="text" class="form-control" ngModel name="email" required email>
+            </div>
+            <div class="form-group mb-3">
+                <label>password</label>
+                <input type="password" class="form-control" ngModel name="password" required minlength="6">
+            </div>
+            <div class="col-mt-3">
+                <button class="btn btn-primary me-3" type="submit" [disabled]="!loginForm.valid">{{isLogin? 'Login': 'Sign Up'}}</button>
+                <button class="btn btn-primary"(click)='onSwitch()' type="button">Switch to {{!isLogin? 'Login':'Sign UP'}}</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,63 @@
+<div class="container mt-5 ">
+    <div class="card " style="width:700px">
+        <div class="card-header text-center">
+            User Resgistration using Template driven form
+        </div>
+    <form (ngSubmit)="onSubmit(myForm)" #myForm="ngForm">  
+        <div class="card-body">
+                <div class="row">
+                 <label >Full Name</label>
+                 <div class="col mb-2">
+                    <input type="text" name="fullname" class="form-control "  ngModel required #name="ngModel">
+                    <div *ngIf="name.invalid && name.touched">
+                        <span >Name is required</span>
+                     </div> 
+                </div> 
+                 
+                 <label >Email</label>
+                 <div class="col mb-2" >
+                    <input type="text" name="email" class="form-control" ngModel required #email="ngModel">
+                    <div *ngIf="email.invalid && email.touched">
+                        <span >Email is required</span>
+                     </div>  
+                </div>
+                 <label >Phone Number</label>
+                 <div class="col mb-2" >
+                    <input type="text" name="phone Number" class="form-control" ngModel required #phone="ngModel">
+                    <div *ngIf="phone.invalid && phone.touched">
+                        <span >Phone number is required</span>
+                     </div> 
+                </div>
+                 <label >Password</label>
+                 <div class="col mb-2"  >
+                    <input type="password" name="password" class="form-control" ngModel required #pass="ngModel">
+                    <div *ngIf="pass.invalid && pass.touched">
+                        <span >Password is required</span>
+                     </div>  
+                </div>
+                 <label >Conform Password</label>
+                 <div class="col mb-2">
+                    <input type="password" name="Conform password" class="form-control" ngModel required #cpass="ngModel">
+                    <div *ngIf="cpass.invalid && cpass.touched">
+                        <span >Confirm password is required</span>
+                     </div>  
+                </div>
+                <div *ngIf="pass.value!=cpass.value && cpass.touched">
+                    <span>Password does not match</span>
+                </div>
+                 <div class="form-check mb-3" style="padding-left: 35px;" >
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate" ngModel required #name="ngModel">
+                  <label class="form-check-label" for="flexCheckIndeterminate">
+                    Agree with terms and condition
+                  </label>
+                </div>
+               <div class="col-md-4">
+                 <button type="submit" class="btn btn-primary" [disabled]="!myForm.valid" >Register</button>
+                </div>
+                </div>
+
+        </div>
+    </form>
+   </div>
+   
+</div>
